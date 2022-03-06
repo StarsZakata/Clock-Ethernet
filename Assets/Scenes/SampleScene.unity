@@ -557,50 +557,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 364656599}
   m_CullTransparentMesh: 0
---- !u!1 &410104323
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 410104325}
-  - component: {fileID: 410104324}
-  m_Layer: 0
-  m_Name: WorldGoogleAPI
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &410104324
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 410104323}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2472d9eeffacd4449b97a1db3292591b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  URLAdress: https://google.com
---- !u!4 &410104325
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 410104323}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.14784528, y: 0.80701387, z: 336.07422}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -2955,6 +2911,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1598063836}
   - component: {fileID: 1598063834}
+  - component: {fileID: 1598063837}
+  - component: {fileID: 1598063835}
   m_Layer: 0
   m_Name: Ethernet
   m_TagString: Untagged
@@ -2974,10 +2932,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bf27ae492b5a624480228ea2001b7e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  One_Ethernet: {fileID: 2055158958}
-  Two_Ethernet: {fileID: 410104324}
-  TimeDelaySecond: 15
-  swap: 1
+  One_Ethernet: {fileID: 1598063835}
+  Two_Ethernet: {fileID: 1598063837}
+  TimeDelaySecond: 3600
+  SwapAPIethernet: 1
+--- !u!114 &1598063835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1598063833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b3fee521d3139a479f1680e23801947, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsTimeLodaed: 0
 --- !u!4 &1598063836
 Transform:
   m_ObjectHideFlags: 0
@@ -2992,6 +2963,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1598063837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1598063833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2472d9eeffacd4449b97a1db3292591b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  URLAdress: https://google.com
 --- !u!1 &1694292633
 GameObject:
   m_ObjectHideFlags: 0
@@ -3852,50 +3836,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Padding: {x: 0, y: 0, z: 0, w: 0}
   m_Softness: {x: 0, y: 0}
---- !u!1 &2055158957
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2055158959}
-  - component: {fileID: 2055158958}
-  m_Layer: 0
-  m_Name: WorldTimeAPI
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2055158958
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2055158957}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b3fee521d3139a479f1680e23801947, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IsTimeLodaed: 0
---- !u!4 &2055158959
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2055158957}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.14784528, y: 0.80701387, z: 336.07422}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2072786848
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,18 +8,19 @@ public class EthernetManager : MonoBehaviour {
 	[SerializeField] private WorldGoogleAPI Two_Ethernet;
 	private Coroutine coroutine;
 
-	// Проверка времени каждые 15 секунд
-	[SerializeField] private int TimeDelaySecond = 15;
+	// Проверка времени каждые 3600 секунд = 1 час
+	[SerializeField] private int TimeDelaySecond = 3600;
+
+
 	// Флаг, для запущенной коррутины
-	[SerializeField] private bool swap = false;
+	[SerializeField] private bool SwapAPIethernet = false;
 
 	public event UnityAction<int, int, int> UpdateDataTime;
 
 	/// <summary>
 	/// Запускаем Одну из Коррутин для получения времени из интернет-соединения
 	/// </summary>
-	private void Start()
-	{
+	private void Start()	{
 		SetSwapTransinCorotine();
 	}
 	/// <summary>
@@ -37,8 +38,8 @@ public class EthernetManager : MonoBehaviour {
 	/// </summary>
 	public void SetSwapTransinCorotine()
 	{
-		swap = !swap;
-		if (swap == false)
+		SwapAPIethernet = !SwapAPIethernet;
+		if (SwapAPIethernet == false)
 		{
 			coroutine = StartCoroutine(Two_EthernetWorldGoogleApi());
 		}
@@ -51,7 +52,6 @@ public class EthernetManager : MonoBehaviour {
 	/// <summary>
 	/// Корутина, опрашивающая интернет-соединение, через JSON и UnityWebRequest
 	/// </summary>
-	/// <returns></returns>
 	IEnumerator One_EthernetWorldTimeAPI() {
 		//yield return new WaitForSeconds(5f);
 		while (true) {
@@ -65,7 +65,6 @@ public class EthernetManager : MonoBehaviour {
 	/// <summary>
 	/// Корутина, опрашивающая интернет-соединение, через WWW
 	/// </summary>
-	/// <returns></returns>
 	IEnumerator Two_EthernetWorldGoogleApi() {
 		//yield return new WaitForSeconds(5f);
 		while (true) {

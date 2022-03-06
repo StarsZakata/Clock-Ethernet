@@ -8,10 +8,9 @@ using UnityEngine;
 /// </summary>
 
 ///< [RequireComponent(typeof(BoxCollider2D))]
-public abstract class RotateElement : MonoBehaviour
-{
-	public float rotateData;
-	public bool timeSecondAlarm;
+public abstract class RotateElement : MonoBehaviour {
+	[HideInInspector] public float rotateData;
+	[HideInInspector] public bool timeSecondAlarm;
 	private Vector2 currentPos;
 
 	private void Start()
@@ -29,9 +28,7 @@ public abstract class RotateElement : MonoBehaviour
 	/// <summary>
 	/// Реакция на отпускание мыши
 	/// </summary>
-	public virtual void OnMouseUp()
-	{
-		
+	public virtual void OnMouseUp()	{
 	}
 
 	/// <summary>
@@ -60,8 +57,6 @@ public abstract class RotateElement : MonoBehaviour
 	/// <summary>
 	/// Перевод из [-180; 180] в [0; 360]
 	/// </summary>
-	/// <param name="angle"></param>
-	/// <returns></returns>
 	public double NormalizeAngle(double angle)
 	{
 		if (angle <= 0)		{

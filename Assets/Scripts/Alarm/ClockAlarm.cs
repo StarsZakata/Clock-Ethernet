@@ -13,9 +13,15 @@ public class ClockAlarm : MonoBehaviour {
 
 	[SerializeField] private TMP_Text buttonText;
 
+	/// <summary>
+	/// Запуск Будильника 
+	/// </summary>
 	public void RunClockAlarm()	{
 		if (SetHours && SetMinute && SetSecond)
 		{
+			if(clockData.currentTime.hours > 12) {
+				hoursData += 12;
+			}
 			Debug.Log("Alarm: " + hoursData + ":" + minutesData + ":" + secondData);
 			clockData.SetAlarm(hoursData, minutesData, secondData);
 			buttonText.text = "Успешно";
@@ -37,34 +43,32 @@ public class ClockAlarm : MonoBehaviour {
 		rotateSecond.UpdateAlarmSecond += SetDataTimeAlarmSecond;
 
 	}
-
 	private void OnDisable()
 	{
 		rotateHours.UpdateAlarmHours -= SetDataTimeAlarmHours;
 		rotateMinute.UpdateAlarmMinute -= SetDataTimeAlarmMinute;
 		rotateSecond.UpdateAlarmSecond -= SetDataTimeAlarmSecond;
 	}
-
+	/////////////////////////////////////////////////////
 	/// <summary>
-	/// Необходимо додумать, как исправить
+	/// Получение времени
 	/// </summary>
-	/// <param name="hours"></param>
 	private void SetDataTimeAlarmHours(int hours) {
-		//Debug.Log("TimeHours " + (hours / -30));
-
 		hoursData = Mathf.Abs( hours / 30);
 		SetHours = true;
 	}
 	private void SetDataTimeAlarmMinute(int minutes)
 	{
-		//Debug.Log("TimeMinute " + (minutes / -6));
 		minutesData = Mathf.Abs( minutes / 6);
 		SetMinute = true;
 	}
 	private void SetDataTimeAlarmSecond(int second)
 	{
-		//Debug.Log("TimeSecond " + (second / -6));
 		secondData = Mathf.Abs(second / 6);
 		SetSecond = true;
 	}
+	////////////////////////////////////////////////////////
+
+
+
 }

@@ -16,24 +16,26 @@ public class ClockData : MonoBehaviour {
         public int second;
     }
     public TimeMy currentTime;
+
+
+    /// <summary>
+    /// Отправка данных, для реализации Анимации циферблата
+    /// </summary>
+    /// <returns></returns>
     public TimeMy GetCuttentTimeForRotation() {
         return currentTime;
     }
-   
-
-
     /// <summary>
     /// Структура для хранения времени будильника
     /// </summary>
     public TimeMy alarmTime;
+    /// <summary>
+    /// Отслеживание Запуска Будильника
+    /// </summary>
     private bool alarmRun = false;
-
     /// <summary>
     /// Установка времени будильника
     /// </summary>
-    /// <param name="hourses"></param>
-    /// <param name="minute"></param>
-    /// <param name="second"></param>
     public void SetAlarm(int hourses, int minute, int second) {
         alarmTime.hours = hourses;
         alarmTime.minutes = minute;
@@ -52,7 +54,7 @@ public class ClockData : MonoBehaviour {
     }
 
     /// <summary>
-    /// Изначально время зависит от Локального Компьютера 
+    /// Возможно реализовать, через Локальное время компьютера
     /// </summary>
 	private void Start()
 	{
@@ -80,9 +82,6 @@ public class ClockData : MonoBehaviour {
     /// <summary>
     /// Получение времени из интернета
     /// </summary>
-    /// <param name="hours"></param>
-    /// <param name="minute"></param>
-    /// <param name="second"></param>
     public void SetCurrentDataFromIthernet(int hours, int minute,int second) {
         Debug.Log("Время Интернета = " + hours + ":" + minute + ":" + second);
         currentTime.hours = hours;
@@ -98,7 +97,6 @@ public class ClockData : MonoBehaviour {
         currentTime.minutes = time.Minute;
         currentTime.second =  time.Second;
     }
-
     /// <summary>
     /// Обновление Данных (не заглядываю повторно в Локальное время компьютера)
     /// </summary>
@@ -120,8 +118,6 @@ public class ClockData : MonoBehaviour {
     /// <summary>
     /// Воспроизведение звука
     /// </summary>
-    /// <param name="alarmTime"></param>
-    /// <param name="currentTime"></param>
     private void RunSound(TimeMy alarmTime, TimeMy currentTime) {
         if (alarmTime.hours == currentTime.hours && alarmTime.minutes == currentTime.minutes && alarmTime.second == currentTime.second) {
             //Debug.Log("Din-Din-Don");
