@@ -18,9 +18,8 @@ public class RotateHours : RotateElement {
 	public override void OnMouseUp()
 	{
 		timeSecondAlarm = false;
-		Debug.Log(rotateData);
-		rotateData = rotateData - rotateData % 10;
-		UpdateAlarmHours?.Invoke((int)rotateData);
+		var normDegree = NormalizeAngle(rotateData);
+		UpdateAlarmHours?.Invoke((int)normDegree);
 	}
 
 }

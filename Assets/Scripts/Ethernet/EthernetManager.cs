@@ -53,7 +53,7 @@ public class EthernetManager : MonoBehaviour {
 	/// </summary>
 	/// <returns></returns>
 	IEnumerator One_EthernetWorldTimeAPI() {
-		yield return new WaitForSeconds(0.25f);
+		//yield return new WaitForSeconds(5f);
 		while (true) {
 			One_Ethernet.BeginRequestDataTime();
 			DateTime currentDateTime = One_Ethernet.GetCurrentDateTime();
@@ -67,7 +67,7 @@ public class EthernetManager : MonoBehaviour {
 	/// </summary>
 	/// <returns></returns>
 	IEnumerator Two_EthernetWorldGoogleApi() {
-		yield return new WaitForSeconds(0.25f);
+		//yield return new WaitForSeconds(5f);
 		while (true) {
 			Two_Ethernet.BeginRequestDataTime();
 			DateTime currentDateTime = Two_Ethernet.GetCurrentDateTime();

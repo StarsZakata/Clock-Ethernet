@@ -16,8 +16,8 @@ public class ClockAlarm : MonoBehaviour {
 	public void RunClockAlarm()	{
 		if (SetHours && SetMinute && SetSecond)
 		{
-			clockData.SetAlarm(hoursData, minutesData, secondData);
 			Debug.Log("Alarm: " + hoursData + ":" + minutesData + ":" + secondData);
+			clockData.SetAlarm(hoursData, minutesData, secondData);
 			buttonText.text = "Успешно";
 		}
 		else
@@ -52,21 +52,19 @@ public class ClockAlarm : MonoBehaviour {
 	private void SetDataTimeAlarmHours(int hours) {
 		//Debug.Log("TimeHours " + (hours / -30));
 
-		hoursData = hours;
+		hoursData = Mathf.Abs( hours / 30);
 		SetHours = true;
 	}
-
 	private void SetDataTimeAlarmMinute(int minutes)
 	{
 		//Debug.Log("TimeMinute " + (minutes / -6));
-		minutesData = minutes;
+		minutesData = Mathf.Abs( minutes / 6);
 		SetMinute = true;
 	}
-
 	private void SetDataTimeAlarmSecond(int second)
 	{
 		//Debug.Log("TimeSecond " + (second / -6));
-		secondData = second;
+		secondData = Mathf.Abs(second / 6);
 		SetSecond = true;
 	}
 }

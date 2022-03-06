@@ -56,7 +56,7 @@ public class ClockData : MonoBehaviour {
     /// </summary>
 	private void Start()
 	{
-        SetCurrentTime();
+        //SetCurrentTime();
         InvokeRepeating("UpdateDataTime", 0, 1); /// обновляем время (Можно реализовать через Коррутину)
     }
     /// <summary>

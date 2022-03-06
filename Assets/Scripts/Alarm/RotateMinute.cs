@@ -14,14 +14,13 @@ public class RotateMinute : RotateElement
 	public event UnityAction<int> UpdateAlarmMinute;
 
 	/// <summary>
-	/// Переопределяем метод
+	/// Переопределяем метод 
 	/// </summary>
 	public override void OnMouseUp()
 	{
 		timeSecondAlarm = false;
-		Debug.Log(rotateData);
-		rotateData = rotateData - rotateData % 10;
-		UpdateAlarmMinute?.Invoke((int)rotateData);
+		var normDegree = NormalizeAngle(rotateData);
+		UpdateAlarmMinute?.Invoke((int)normDegree);
 	}
 
 }

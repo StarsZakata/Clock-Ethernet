@@ -12,7 +12,13 @@ public abstract class RotateElement : MonoBehaviour
 {
 	public float rotateData;
 	public bool timeSecondAlarm;
+	private Vector2 currentPos;
 
+	private void Start()
+	{
+		currentPos.x = 0;
+		currentPos.y = 1;
+	}
 	/// <summary>
 	/// Реакция на нажатие мышиы
 	/// </summary>
@@ -34,8 +40,12 @@ public abstract class RotateElement : MonoBehaviour
 	private void RorateElement()
 	{
 		Vector3 diference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-		rotateData = Mathf.Atan2(diference.y, diference.x) * Mathf.Rad2Deg;
-		transform.rotation = Quaternion.Euler(0f, 0f, rotateData);
+		Vector2 tmp;
+		tmp.x = diference.x;
+		tmp.y = diference.y;
+		rotateData = Vector2.SignedAngle(currentPos, tmp);
+		rotateData = rotateData - rotateData % 10;
+		transform.rotation = Quaternion.Euler(0f, 0f, rotateData + 90);
 	}
 	/// <summary>
 	/// Повторяем каждый кадр
@@ -46,6 +56,21 @@ public abstract class RotateElement : MonoBehaviour
 		{
 			RorateElement();
 		}
+	}
+	/// <summary>
+	/// Перевод из [-180; 180] в [0; 360]
+	/// </summary>
+	/// <param name="angle"></param>
+	/// <returns></returns>
+	public double NormalizeAngle(double angle)
+	{
+		if (angle <= 0)		{
+			return angle;
+		}
+		else if (angle > 0)		{
+			angle = 360 - angle;
+		}
+		return angle;
 	}
 
 }
